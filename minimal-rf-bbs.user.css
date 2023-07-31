@@ -1,0 +1,151 @@
+/* ==UserStyle==
+@name        Minimal RF BBS
+@namespace   github.com/openstyles/stylus
+@description Attempt at minimal, light userstyle for RF's new BBS
+@author      Kamil "Brego" Dzieliński <contact@brego.dev>
+@version     0.0.7
+@license     MIT <https://opensource.org/license/MIT/>
+@homepageURL https://github.com/brego/minimal-rf-bbs
+@supportURL  https://github.com/brego/minimal-rf-bbs/issues
+@updateURL   https://raw.githubusercontent.com/brego/minimal-rf-bbs/master/minimal-rf-bbs.user.css
+
+# 2023-07-31, v0.0.7:
+ - Pushed to GitHub
+
+# 2023-07-31, v0.0.6:
+ - Bestilling: Make comment field more visible, and not hidden under other text
+ - Bestilling: Give "Låst" and "Denne vare kan ikke bestilles længere" better colors
+
+# 2023-07-13, v0.0.5:
+ - Budget: Show comment field directly in each row
+ - Budget: Make account row more prominent
+ - Budget: Add borders to rows
+ - Budget & Bestilling: Every other row has background color
+ - Budget & Bestilling: Make the table header stick to top of window
+ - Bestilling: Stop using italics, it's hard to read
+
+
+# 2023-04-20, v0.0.2:
+ - Initial attempt
+
+==/UserStyle== */
+@-moz-document domain("bbs.roskilde-festival.dk") {
+    *,
+    * ~ * {
+        text-shadow: none !important;
+    }
+    body {
+        background-color: white !important;
+    }
+    body::before {
+        background-image: none !important;
+    }
+    .fixed-top {
+        position:         static !important;
+        background-color: white !important;
+        color:            black !important;
+        padding-bottom:   0 !important;
+        border:           0 !important;
+        box-shadow:       none !important;
+    }
+    .fixed-top .container a[href="/"] img {
+        height: 50px !important;
+    }
+    #dropdownUser1 {
+        color: black !important;
+    }
+    .nav {
+        margin-top: 0 !important;
+    }
+    .nav > li > a {
+        color:         black !important;
+        border-bottom: 0 !important
+    }
+    .nav > li > a:hover {
+        color:           #fd7e14 !important;
+        text-decoration: underline !important;
+    }
+    .nav > li > a.link-secondary {
+        color:            #fd7e14 !important;
+        box-shadow:       none !important;
+        background-color: #eee! important;
+        text-decoration:  underline !important;
+    }
+    .container {
+        margin-top: 0 !important;
+        max-width:  100% !important;
+    }
+    footer .contact a {
+        color: black !important;
+    }
+    .orderListTable th,
+    .budgetListTable th {
+        top:              0px !important;
+        background-color: #eeeeee !important;
+    }
+    .budgetListTable .accountsRow td {
+        font-size:      14px !important;
+        padding-bottom: 5px !important;
+    }
+    .BtnTD i,
+    .BtnTD i * {
+        color:      black !important;
+        font-style: normal !important;
+    }
+    .orderListTable *,
+    .budgetListTable * {
+        font-style: normal !important;
+    }
+    .name[title] i::before {
+        color: lightgray !important;
+    }
+
+    /**
+     * Budget: Show comments inline
+     */
+    .name[title]:not([title=""])::after {
+        display: block;
+        content: "(" attr(title) ")";
+        padding: 0 !important;
+        margin:  0 !important;
+        color:   lightslategray !important;
+    }
+
+    /**
+     * Table rows colors, and alternating colors
+     */
+    .FirstBudgetLineFalse[role=budgetLine] {
+        border-width: 1px 0 1px 0 !important;
+        border-style: solid !important;
+        border-color: gainsboro !important;
+    }
+    .stripedEveryTwoRows tr:nth-child(4n+1),
+    .stripedEveryTwoRows tr:nth-child(4n+2),
+    .FirstBudgetLineFalse[role=budgetLine]:nth-child(even) {
+        background: aliceblue !important;
+    }
+
+    /**
+     * Bestilling: Denne vare kan ikke bestilles længere (...) 
+     */
+    .badge.rounded-pill.bg-warning {
+        display:          block !important;
+        background-color: lightcoral !important;
+        color:            white !important;
+    }
+
+    /**
+     * Bestilling: Låst med status: (...)
+     */
+    .badge.rounded-pill.bg-primary.LockAndStatus {
+        background-color: mediumseagreen !important;
+    }
+
+    /**
+     * Bestilling: comments on should be visible
+     */
+    .InsertedTR.noteCell div {
+        overflow: visible !important;
+        position: static !important;
+    }
+}
