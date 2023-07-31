@@ -1,13 +1,14 @@
 /* ==UserStyle==
-@name        Minimal RF BBS
-@namespace   github.com/openstyles/stylus
-@description Attempt at minimal, light userstyle for RF's new BBS
-@author      Kamil "Brego" Dzieliński <contact@brego.dev>
-@version     0.0.7
-@license     MIT <https://opensource.org/license/MIT/>
-@homepageURL https://github.com/brego/minimal-rf-bbs
-@supportURL  https://github.com/brego/minimal-rf-bbs/issues
-@updateURL   https://raw.githubusercontent.com/brego/minimal-rf-bbs/master/minimal-rf-bbs.user.css
+@name         Minimal RF BBS
+@namespace    <https://github.com/brego>
+@description  Attempt at minimal, light userstyle for RF's new BBS
+@author       Kamil "Brego" Dzieliński <contact@brego.dev>
+@version      0.0.7
+@license      MIT
+@homepageURL  <https://github.com/brego/minimal-rf-bbs>
+@supportURL   <https://github.com/brego/minimal-rf-bbs/issues>
+@updateURL    <https://raw.githubusercontent.com/brego/minimal-rf-bbs/master/minimal-rf-bbs.user.css>
+@preprocessor default
 
 # 2023-07-31, v0.0.7:
  - Pushed to GitHub
