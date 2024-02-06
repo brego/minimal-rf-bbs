@@ -10,6 +10,13 @@
 @updateURL    https://raw.githubusercontent.com/brego/minimal-rf-bbs/master/minimal-rf-bbs.user.css
 @preprocessor default
 
+# 2024-02-06, v0.2.0:
+ - Add focus style
+ - Disable shadows in inputs
+ - Clean "disabled" fields
+ - Clean "number" fields
+ - Improve search results
+
 # 2023-07-31, v0.1.0:
  - Pushed to GitHub
 
@@ -31,9 +38,20 @@
 
 ==/UserStyle== */
 @-moz-document domain("bbs.roskilde-festival.dk") {
+    /* No shadows in a financial system */
     *,
-    * ~ * {
+    * + *,
+    * ~ *,
+    input,
+    textarea {
         text-shadow: none !important;
+    }
+    input, textarea {
+        box-shadow: none;
+    }
+    input:focus,
+    textarea:focus {
+        border-color: hotpink !important;
     }
     body {
         background-color: white !important;
@@ -149,4 +167,53 @@
         overflow: visible !important;
         position: static !important;
     }
+
+    /**
+     * Bestilling: color disabled fields
+     */
+    .form-control:disabled,
+    input[disabled] {
+        color: #999 !important;
+        background-color: #efefef !important;
+    }
+
+    input[type="number"],
+    input[type="text"] {
+        text-align: left !important;
+        padding: .1em .5em !important;
+    }
+
+    /* Make number fields behave like text */
+    input[type="number"] {
+      -webkit-appearance: textfield;
+         -moz-appearance: textfield;
+              appearance: textfield;
+    }
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+    }
+
+    .form-control.input-sm.addProductToListClones {
+        width: 10em !important;
+    }
+
+    #filter-result {
+        box-shadow: 0 1em 1em rgba(0,0,0,.35);
+        top: 23px !important;
+        border-radius: 0 0 .75em .75em;
+        border-color: #ccc hotpink hotpink hotpink !important;
+    }
+
+    #filter-result table#product-search.table.smalltext {
+        max-width: calc(100% - 20px) !important;
+    }
+    #product-search tr:nth-child(even) {
+        background: aliceblue;
+    }
+    #product-search tr:nth-child(1) th:nth-child(1),
+    #product-search tr td:nth-child(1) {
+        padding-left: 1em !important;
+    }
+
 }
