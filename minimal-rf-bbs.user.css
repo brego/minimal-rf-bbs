@@ -3,13 +3,14 @@
 @namespace    https://github.com/brego
 @description  Attempt at minimal, light userstyle for RF's new BBS
 @author       Kamil "Brego" Dzieliński <contact@brego.dev>
-@version      0.2.5
+@version      0.2.6
 @license      MIT
 @homepageURL  https://github.com/brego/minimal-rf-bbs
 @supportURL   https://github.com/brego/minimal-rf-bbs/issues
 @updateURL    https://raw.githubusercontent.com/brego/minimal-rf-bbs/master/minimal-rf-bbs.user.css
 @preprocessor default
 
+# 2024-02-14, v0.2.6:
 # 2024-02-14, v0.2.5:
  - Fix bug hiding "return false;"
 
@@ -76,7 +77,7 @@
         background-image: none !important;
     }
     /* Covers "return false;" garbage */
-    .loggedIn.scrollbar.force-overflow::before {
+    .loggedIn .scrollbar .force-overflow::before {
         content:    '';
         display:    block;
         background: white;
