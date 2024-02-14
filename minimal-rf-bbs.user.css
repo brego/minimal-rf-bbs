@@ -3,12 +3,19 @@
 @namespace    https://github.com/brego
 @description  Attempt at minimal, light userstyle for RF's new BBS
 @author       Kamil "Brego" Dzieliński <contact@brego.dev>
-@version      0.2.0
+@version      0.2.4
 @license      MIT
 @homepageURL  https://github.com/brego/minimal-rf-bbs
 @supportURL   https://github.com/brego/minimal-rf-bbs/issues
 @updateURL    https://raw.githubusercontent.com/brego/minimal-rf-bbs/master/minimal-rf-bbs.user.css
 @preprocessor default
+
+# 2024-02-14, v0.2.4:
+ - Cover "return false;" garbage
+ - Thicker borders on form elements
+ - Orange instead of hotpink for accent
+ - Style for select fields
+ - Unstick table headers
 
 # 2024-02-06, v0.2.0:
  - Add focus style
@@ -46,18 +53,33 @@
     textarea {
         text-shadow: none !important;
     }
-    input, textarea {
-        box-shadow: none;
+    input, textarea, select {
+        box-shadow: none !important;
+        border-width: 2px !important;
     }
     input:focus,
-    textarea:focus {
-        border-color: hotpink !important;
+    textarea:focus,
+    select:focus {
+        border-color: orange !important;
+    }
+    textarea {
+        padding: 2px 5px !important;
     }
     body {
         background-color: white !important;
+        font-family:      system-ui, sans-serif !important;
     }
     body::before {
         background-image: none !important;
+    }
+    /* Covers "return false;" garbage */
+    .force-overflow::before {
+        content:    '';
+        display:    block;
+        background: white;
+        width:      100vw;
+        height:     24px;
+        position:   absolute;
     }
     .fixed-top {
         position:         static !important;
@@ -101,6 +123,7 @@
     .budgetListTable th {
         top:              0px !important;
         background-color: #eeeeee !important;
+        position:         static !important;
     }
     .budgetListTable .accountsRow td {
         font-size:      14px !important;
@@ -178,7 +201,8 @@
     }
 
     input[type="number"],
-    input[type="text"] {
+    input[type="text"],
+    input[type="password"] {
         text-align: left !important;
         padding: .1em .5em !important;
     }
@@ -202,7 +226,7 @@
         box-shadow: 0 1em 1em rgba(0,0,0,.35);
         top: 23px !important;
         border-radius: 0 0 .75em .75em;
-        border-color: #ccc hotpink hotpink hotpink !important;
+        border-color: #ccc orange orange orange !important;
     }
 
     #filter-result table#product-search.table.smalltext {
