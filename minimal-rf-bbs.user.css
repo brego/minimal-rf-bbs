@@ -3,12 +3,15 @@
 @namespace    https://github.com/brego
 @description  Attempt at minimal, light userstyle for RF's new BBS
 @author       Kamil "Brego" Dzieliński <contact@brego.dev>
-@version      0.2.8
+@version      0.2.9
 @license      MIT
 @homepageURL  https://github.com/brego/minimal-rf-bbs
 @supportURL   https://github.com/brego/minimal-rf-bbs/issues
 @updateURL    https://raw.githubusercontent.com/brego/minimal-rf-bbs/master/minimal-rf-bbs.user.css
 @preprocessor default
+
+# 2024-12-27, v0.2.9:
+ - Budget: Better table row coloring
 
 # 2024-12-27, v0.2.8:
  - Bestilling: Fix even table row coloring
@@ -148,9 +151,10 @@
     }
     .orderListTable th,
     .budgetListTable th {
-        top:              0px !important;
-        background-color: #eeeeee !important;
-        position:         static !important;
+        top: 0px !important;
+    }
+    .noHeader.darkRow {
+        background: lightgoldenrodyellow !important;
     }
     .budgetListTable .accountsRow td {
         font-size:      14px !important;
