@@ -3,12 +3,16 @@
 @namespace    https://github.com/brego
 @description  Attempt at minimal, light userstyle for RF's new BBS
 @author       Kamil "Brego" Dzieliński <contact@brego.dev>
-@version      0.2.7
+@version      0.2.8
 @license      MIT
 @homepageURL  https://github.com/brego/minimal-rf-bbs
 @supportURL   https://github.com/brego/minimal-rf-bbs/issues
 @updateURL    https://raw.githubusercontent.com/brego/minimal-rf-bbs/master/minimal-rf-bbs.user.css
 @preprocessor default
+
+# 2024-12-27, v0.2.8:
+ - Bestilling: Fix even table row coloring
+ - Bestilling: Align the "Gem" button with the notification
 
 # 2024-02-27, v0.2.7:
  - Better table for multiple budget numbers
@@ -102,9 +106,14 @@
     main .force-overflow .container:first-of-type {
         padding-top: 65px !important;
     }
-
+    .fixed-top .container .d-flex.flex-wrap.justify-content-center.justify-content-lg-start{
+            justify-content: center !important
+    }
     .fixed-top .container a[href="/"] img {
-        height: 50px !important;
+        max-height: 50px !important;
+    }
+    .fixed-top .container .d-flex.flex-wrap.justify-content-center.justify-content-lg-start div {
+        width: auto !important;
     }
     #dropdownUser1 {
         color: black !important;
@@ -147,6 +156,10 @@
         font-size:      14px !important;
         padding-bottom: 5px !important;
     }
+    .budgetListTable th:not(.noHeader) {
+        top:        0 !important;
+        border-top: 0 !important;
+    }
     .BtnTD i,
     .BtnTD i * {
         color:      black !important;
@@ -179,9 +192,7 @@
         border-style: solid !important;
         border-color: gainsboro !important;
     }
-    .stripedEveryTwoRows tr:nth-child(4n+1),
-    .stripedEveryTwoRows tr:nth-child(4n+2),
-    .FirstBudgetLineFalse[role=budgetLine]:nth-child(even) {
+    .stripedEveryTwoRows tr:nth-child(2n) {
         background: aliceblue !important;
     }
 
@@ -269,5 +280,10 @@
     }
     .budgetOverviewTable.table-hover > tbody > tr:hover {
         background: orange !important;
+    }
+
+    .row.justify-content-end.sticky-buttons{
+        top: 85px !important;
+        padding-right: 26px;
     }
 }
